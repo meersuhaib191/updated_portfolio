@@ -1,0 +1,33 @@
+[00:00:01.853] Server  LOG     ✓ Ready in 1331ms
+[00:00:04.960] Server  LOG     ○ Compiling / ...
+[00:00:05.936] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:07.360] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:09.342] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:09.922] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/headshot.jpg" "received" null
+[00:00:10.330] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:10.436] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:10.521] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:10.882] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:11.037] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/gallery/gallery-1.jpg" "received" null
+[00:00:11.049] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/gallery/gallery-2.jpg" "received" null
+[00:00:11.054] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/gallery/gallery-3.jpg" "received" null
+[00:00:11.101] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/gallery/gallery-4.jpg" "received" null
+[00:00:15.092] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:15.127] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:15.271] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:15.367] Server  WARN    ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+[00:00:15.504] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/gallery/gallery-5.jpg" "received" null
+[00:00:15.509] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/gallery/gallery-7.jpg" "received" null
+[00:00:15.536] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/gallery/gallery-8.jpg" "received" null
+[00:00:15.539] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/gallery/gallery-6.jpg" "received" null
+[00:03:10.712] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

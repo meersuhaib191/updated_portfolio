@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///K:/updated_portfolio/app/template.tsx"],"sourcesContent":["\"use client\";\r\n\r\nimport { AnimatePresence, motion } from \"framer-motion\";\r\nimport { usePathname } from \"next/navigation\";\r\n\r\nexport default function Template({ children }: { children: React.ReactNode }) {\r\n  const pathname = usePathname();\r\n\r\n  return (\r\n    <AnimatePresence mode=\"wait\">\r\n      <motion.div\r\n        key={pathname}\r\n        initial={{ opacity: 0, y: 10 }}\r\n        animate={{ opacity: 1, y: 0 }}\r\n        exit={{ opacity: 0, y: -10 }}\r\n        transition={{ duration: 0.3, ease: \"easeOut\" }}\r\n      >\r\n        {children}\r\n      </motion.div>\r\n    </AnimatePresence>\r\n  );\r\n}\r\n\r\n"],"names":[],"mappings":";;;;;AAEA;AAAA;AACA;;;AAHA;;;AAKe,SAAS,SAAS,EAAE,QAAQ,EAAiC;;IAC1E,MAAM,WAAW,IAAA,oJAAW;IAE5B,qBACE,6LAAC,+MAAe;QAAC,MAAK;kBACpB,cAAA,6LAAC,uMAAM,CAAC,GAAG;YAET,SAAS;gBAAE,SAAS;gBAAG,GAAG;YAAG;YAC7B,SAAS;gBAAE,SAAS;gBAAG,GAAG;YAAE;YAC5B,MAAM;gBAAE,SAAS;gBAAG,GAAG,CAAC;YAAG;YAC3B,YAAY;gBAAE,UAAU;gBAAK,MAAM;YAAU;sBAE5C;WANI;;;;;;;;;;AAUb;GAhBwB;;QACL,oJAAW;;;KADN"}},
+    {"offset": {"line": 65, "column": 0}, "map": {"version":3,"sources":["file:///K:/updated_portfolio/node_modules/next/navigation.js"],"sourcesContent":["module.exports = require('./dist/client/components/navigation')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0]}}]
+}
