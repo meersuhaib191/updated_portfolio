@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #050509;
+}
+
+.bg-radial-gradient {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.22), transparent 55%),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(249, 115, 22, 0.22),
+      transparent 55%
+    ),
+    radial-gradient(circle at 50% 20%, rgba(15, 23, 42, 0.95), #020617);
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.4);
+  color: #f9fafb;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
