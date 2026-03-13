@@ -78,6 +78,13 @@ export default function Hero() {
             </span>
           </a>
           <a
+            href="/Mir_Suhaib_Resume.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/60 px-6 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-200 backdrop-blur transition hover:border-primary/80 hover:text-primary"
+          >
+            Download Resume
+          </a>
+          <a
             href="#contact"
             className="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/60 px-6 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-200 backdrop-blur transition hover:border-primary/80 hover:text-primary"
           >
