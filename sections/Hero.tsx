@@ -26,9 +26,10 @@ export default function Hero() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-col gap-8"
+        className="relative z-10 grid gap-10 items-start lg:grid-cols-[minmax(0,1.5fr),minmax(0,1.1fr)]"
       >
-        <motion.p
+        <div className="flex flex-col gap-8">
+          <motion.p
           variants={fadeUp}
           custom={0}
           className="inline-flex max-w-max items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/60 px-4 py-1 text-[11px] uppercase tracking-[0.3em] text-slate-300 backdrop-blur"
@@ -37,7 +38,7 @@ export default function Hero() {
           Final-year CSE · AI &amp; Data
         </motion.p>
 
-        <motion.h1
+          <motion.h1
           variants={fadeUp}
           custom={1}
           className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl lg:text-6xl"
@@ -48,7 +49,7 @@ export default function Hero() {
           </span>
         </motion.h1>
 
-        <motion.p
+          <motion.p
           variants={fadeUp}
           custom={2}
           className="max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base"
@@ -62,7 +63,7 @@ export default function Hero() {
           systems.
         </motion.p>
 
-        <motion.div
+          <motion.div
           variants={fadeUp}
           custom={3}
           className="flex flex-wrap items-center gap-4"
@@ -84,7 +85,7 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        <motion.div
+          <motion.div
           variants={fadeUp}
           custom={4}
           className="grid w-full max-w-xl grid-cols-3 gap-3 text-[11px] text-slate-300"
@@ -120,12 +121,13 @@ export default function Hero() {
               B.Tech · Computer Science &amp; Engineering
             </p>
           </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         <motion.div
           variants={fadeUp}
           custom={5}
-          className="mt-2 w-full max-w-xl rounded-2xl border border-slate-800/80 bg-slate-950/70 p-4 text-[11px] text-slate-300 backdrop-blur-xl"
+          className="mt-2 w-full rounded-2xl border border-slate-800/80 bg-slate-950/70 p-4 text-[11px] text-slate-300 backdrop-blur-xl lg:mt-0"
         >
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">

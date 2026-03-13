@@ -1,5 +1,7 @@
 "use client";
 
+import type React from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "../utils/motion";
 
@@ -44,6 +46,38 @@ function LinkedInIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      {...props}
+    >
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <circle cx="17" cy="7" r="1" fill="currentColor" />
+    </svg>
+  );
+}
+
 const socialLinks = [
   {
     label: "GitHub",
@@ -54,6 +88,11 @@ const socialLinks = [
     label: "LinkedIn",
     href: "https://linkedin.com/in/meersuhaib191",
     tag: "/in/meersuhaib191"
+  },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/meersuhaib_19_1",
+    tag: "@meersuhaib_19_1"
   }
 ];
 
@@ -73,6 +112,53 @@ const certifications = [
 ];
 
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">(
+    "idle"
+  );
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!WEB3_FORMS_KEY) {
+      setStatus("error");
+      return;
+    }
+
+    setStatus("submitting");
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      access_key: WEB3_FORMS_KEY,
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+      subject: "New message from Mir Suhaib portfolio",
+      from_name: "Portfolio Contact Form"
+    };
+
+    try {
+      const response = await fetch(WEB3_FORMS_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = (await response.json()) as { success?: boolean };
+
+      if (response.ok && data?.success) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -92,6 +178,26 @@ export default function Contact() {
           <p className="mt-4 text-xl font-medium text-slate-50 sm:text-2xl">
             Let&apos;s build something intelligent together.
           </p>
+          {status === "success" && (
+            <motion.div
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-[10px] text-emerald-200"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.9)]" />
+              <span>Message sent successfully. I&apos;ll get back to you soon.</span>
+            </motion.div>
+          )}
+          {status === "error" && (
+            <motion.div
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-3 inline-flex items-center gap-2 rounded-full border border-rose-500/40 bg-rose-500/10 px-3 py-1 text-[10px] text-rose-200"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-400 shadow-[0_0_10px_rgba(248,113,113,0.9)]" />
+              <span>Something went wrong. Please try again or email me directly.</span>
+            </motion.div>
+          )}
         </motion.div>
 
         <motion.div
@@ -106,25 +212,13 @@ export default function Contact() {
             </p>
 
             <motion.form
-              action={WEB3_FORMS_ENDPOINT}
-              method="POST"
+              onSubmit={handleSubmit}
               className="space-y-3 rounded-2xl border border-slate-800/80 bg-slate-950/70 p-4 text-xs backdrop-blur-xl"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <input type="hidden" name="access_key" value={WEB3_FORMS_KEY ?? ""} />
-              <input
-                type="hidden"
-                name="subject"
-                value="New message from Mir Suhaib portfolio"
-              />
-              <input
-                type="hidden"
-                name="from_name"
-                value="Portfolio Contact Form"
-              />
               <p className="text-[10px] uppercase tracking-[0.25em] text-slate-500">
                 Send a message
               </p>
@@ -163,9 +257,10 @@ export default function Contact() {
               <div className="flex items-center justify-between gap-3">
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-950 shadow-glow transition hover:-translate-y-0.5 hover:shadow-glow-soft"
+                  disabled={status === "submitting"}
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-950 shadow-glow transition hover:-translate-y-0.5 hover:shadow-glow-soft disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  Send
+                  {status === "submitting" ? "Sending…" : "Send"}
                   <span>↗</span>
                 </button>
                 <p className="text-[10px] text-slate-500">
@@ -217,8 +312,10 @@ export default function Contact() {
                     <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700/80 bg-black/30 text-primary shadow-glow-soft transition group-hover:border-primary/70">
                       {link.label === "GitHub" ? (
                         <GitHubIcon />
-                      ) : (
+                      ) : link.label === "LinkedIn" ? (
                         <LinkedInIcon />
+                      ) : (
+                        <InstagramIcon />
                       )}
                     </span>
                     <span>{link.label}</span>
